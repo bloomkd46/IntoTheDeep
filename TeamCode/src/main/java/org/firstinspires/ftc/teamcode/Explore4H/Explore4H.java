@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode;
 
 import static org.firstinspires.ftc.teamcode.BuildConfig.BUILD_NUMBER;
 
-import com.qualcomm.robotcore.eventloop.opmode.Teleop;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-@Teleop(name = "Explore 4H")
+@TeleOp(name = "Explore 4H")
 public class Explore4H extends OpMode {
   private DcMotor frontLeft;
   private DcMotor frontRight;
