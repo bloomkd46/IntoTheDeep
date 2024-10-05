@@ -6,38 +6,31 @@
 	"image": "mcr.microsoft.com/devcontainers/java:1-11-bookworm",
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
+			"version": "17",
 			"installMaven": "false",
 			"installGradle": "true"
 		},
-		"ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {
-			"version": "latest",
-			"components": [
-				"platform-tools",
-				"build-tools;30.0.3",
-				"platforms;android-30"
-			]
-		},
+		"ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sdkmanager --licenses",
+	// "postCreateCommand": "java -version",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"GitHub.copilot",
 				"GitHub.vscode-github-actions",
-				"vscjava.vscode-java-pack",
-				"vscjava.vscode-gradle",
-				"vscjava.vscode-maven",
-				"ms-androidtools.vscode-android-emulator",
-				"ms-androidtools.vscode-android"
-			]
+				"redhat.java", // Add the Java extension
+				"antonydalmiere.android-support"
+			],
+			"settings": {
+				"java.server.launchMode": "LightWeight"
+			}
 		}
-	},
+	}
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
