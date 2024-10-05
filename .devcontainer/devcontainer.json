@@ -4,33 +4,40 @@
 	"name": "Java",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/java:1-11-bookworm",
-
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "none",
 			"installMaven": "false",
 			"installGradle": "true"
 		},
-		"ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {},
+		"ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {
+			"version": "latest",
+			"components": [
+				"platform-tools",
+				"build-tools;30.0.3",
+				"platforms;android-30"
+			]
+		},
 		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
-
+	"postCreateCommand": "sdkmanager --licenses",
 	// Configure tool-specific properties.
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "GitHub.copilot",
-                "GitHub.vscode-github-actions"
-            ]
-        }
-    }
-
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.vscode-github-actions",
+				"vscjava.vscode-java-pack",
+				"vscjava.vscode-gradle",
+				"vscjava.vscode-maven",
+				"ms-androidtools.vscode-android-emulator",
+				"ms-androidtools.vscode-android"
+			]
+		}
+	},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
