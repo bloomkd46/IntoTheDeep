@@ -16,6 +16,8 @@ public class Robot {
     this.frontRight = hardwareMap.get(DcMotorEx.class, "FrontRight");
     this.rearLeft = hardwareMap.get(DcMotorEx.class, "RearLeft");
     this.rearRight = hardwareMap.get(DcMotorEx.class, "RearRight");
+
+    this.frontRight.setDirection(DcMotorEx.Direction.REVERSE);
   }
 
   public void drive(double drive, double strafe, double rotate) {
